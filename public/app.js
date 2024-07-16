@@ -51,6 +51,11 @@ function displayChart(customerId, transactions) {
     const amounts = Object.values(dailyTotals);
 
     const ctx = document.getElementById('transactionChart').getContext('2d');
+
+    // Clear previous chart instance (if exists)
+    Chart.getChart('transactionChart')?.destroy();
+
+    // Create new chart instance
     new Chart(ctx, {
         type: 'line',
         data: {
